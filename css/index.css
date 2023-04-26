@@ -1,0 +1,139 @@
+:root{
+    --ckeckboxT: #CCD6A6;
+    --checkbox: #a0b269;
+    --row-count: #eaeed9;
+    --button-hover: #667739;
+    --white : #fff;
+}
+
+
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 25px;
+}
+
+.row{
+    display: flex;
+    align-items: center;
+}
+
+.row-count{
+    background-color: var(--row-count);
+    width: 300px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.title{
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.form{
+    display: grid;
+}
+
+label{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+input[type=text], select{
+    height: 20px;
+    width: 200px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+
+select{
+    height: 25px;
+    width: 210px;
+}
+
+.checkbox{
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+}
+
+input[type=checkbox]{
+    height: 15px;
+    width: 15px;
+    accent-color: var(--checkbox);
+}
+
+.button-style{
+    height: 30px;
+    margin-top: 15px;
+    background-color: var(--checkbox);
+    border: none;
+    border-radius: 10px;
+    color: var(--white);
+}
+
+.button-style:hover{
+    background-color: var(--button-hover);
+}
+
+.displayreceipt{
+    display: none;
+}
+
+.row-recipt{
+    height: 370px;
+    background: var(--button-hover);
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+}
+
+.title-recipts{
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.title-description{
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.recepit-input{
+    margin-top: 5px;
+    width: 250px;
+    display: flex;
+}
+
+.name-total{
+    width: 200px;
+}
+
+hr{
+    width: 100%;
+}
+
+#grandTotal{
+    margin-bottom: 5px;
+    font-size: 1.3rem;
+}
+
+#RefillCost, #TotalRrefills, #subscriptionTotal, #couponTotal, #paidTotal{
+    width: 100px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.client-saving-style{
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+}
