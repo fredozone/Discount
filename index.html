@@ -17,15 +17,15 @@
                 <div class="title">Discount</div>
                 <form id="myForm">
                     <div class="form">
-                        <label for="Name-label">Client Name</label>
+                        <label for="Name-label">Client First Name</label>
                         <input type="text" name="name" id="name">
                         <label for="prescription-label">Prescription</label>
-                        <select name="prescription" id="prescription">
-                            <option value=""></option>
-                            <option value="Acetaminophen">Acetaminophen</option>
-                            <option value="Diphenhydramine">Diphenhydramine</option>
-                            <option value="Phenylephrine">Phenylephrine</option>
-                        </select>
+                        <input list="prescription-list" name="prescription" id="prescription">
+                        <datalist id="prescription-list">
+                            <option value="Acetaminophen">
+                            <option value="Diphenhydramine">
+                            <option value="Phenylephrine">
+                        </datalist>
                         <label for="price-label">Price</label>
                         <input type="text" name="price" id="price" onkeypress="return isNumberKey(event,this.id)">
                         <label for="refills-label">N&#186; Refills</label>

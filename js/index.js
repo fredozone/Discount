@@ -79,8 +79,9 @@ function GrandTotal(){
     // PAGE SOLUTION
     //deleting the white space and conver my client name in lower case.
     var LowerClientName = document.getElementById("name").value.trim().toLowerCase(); 
-    const ClientName = LowerClientName.charAt(0).toUpperCase()+ LowerClientName.slice(1)
-    var Prescription = document.getElementById("prescription").value.trim();
+    const ClientName = LowerClientName.charAt(0).toUpperCase()+ LowerClientName.slice(1);
+    var LowerPrescription = document.getElementById("prescription").value.trim().toLowerCase();
+    var Prescription = LowerPrescription.charAt(0).toUpperCase()+ LowerPrescription.slice(1);
     var Price = document.getElementById("price").value.trim();
     var NumberRefills = document.getElementById("refills").value.trim();
     var Subscription = document.getElementById("subscriptions");
@@ -107,11 +108,11 @@ function GrandTotal(){
     document.getElementById("prescriptionName").innerHTML = Prescription;
     document.getElementById("NRefills").innerHTML = NumberRefills;
     document.getElementById("RefillCost").innerHTML = "$"+Price;
-    document.getElementById("TotalRrefills").innerHTML = "$"+refillsTotalP;
+    document.getElementById("TotalRrefills").innerHTML = "$"+refillsTotalP.toFixed(2).replace(/\.00$/, '');;
 
     if(Subscription === true){
         document.getElementById("subscriptionShow").innerHTML = "Subscription Discount";
-        document.getElementById("subscriptionTotal").innerHTML = "-$"+promotionTotalP;
+        document.getElementById("subscriptionTotal").innerHTML = "-$"+promotionTotalP.toFixed(2).replace(/\.00$/, '');;
     }else{
         document.getElementById("subscriptionShow").innerHTML = "";
         document.getElementById("subscriptionTotal").innerHTML = "";
@@ -119,16 +120,16 @@ function GrandTotal(){
 
     if(Coupon === true){
         document.getElementById("couponShow").innerHTML = "Coupon Discount";
-        document.getElementById("couponTotal").innerHTML = "-$"+couponTotalP;
+        document.getElementById("couponTotal").innerHTML = "-$"+couponTotalP.toFixed(2).replace(/\.00$/, '');;
     }else{
         document.getElementById("couponShow").innerHTML = "";
         document.getElementById("couponTotal").innerHTML = "";
     }
 
-    document.getElementById("paidTotal").innerHTML = "$"+total;
+    document.getElementById("paidTotal").innerHTML = "$"+total.toFixed(2).replace(/\.00$/, '');;
     if(Subscription == true || Coupon == true){
         document.getElementById("clientName").innerHTML = ClientName + "'s saving today";
-        document.getElementById("grandSavingTotal").innerHTML = "$"+totalDiscountTotalP;
+        document.getElementById("grandSavingTotal").innerHTML = "$"+totalDiscountTotalP.toFixed(2).replace(/\.00$/, '');;
     }else{
         document.getElementById("clientName").innerHTML = "";
         document.getElementById("grandSavingTotal").innerHTML = "";
@@ -160,14 +161,16 @@ function validation(){
         // NumberRefills name validation
         (NumberRefills == "" || NumberRefills == null) ? document.getElementById("refills").classList.add("validation")
         : document.getElementById("refills").classList.remove("validation");
-       
+
+        //if one of input is empty is going to add the class displayreceipt on showreceipt
+        document.getElementById("showReceipt").classList.add("displayreceipt");
     }else{
         GrandTotal();
     }
 }
 
-function onlyNumberKey(evt) {
-              
+//function that allows just number
+function onlyNumberKey(evt) {       
     // Only ASCII character in that range allowed
     var ASCIICode = (evt.which) ? evt.which : evt.keyCode
     if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
@@ -175,7 +178,7 @@ function onlyNumberKey(evt) {
     return true;
 }
 
-
+//function that allow number and dot(.)
 function isNumberKey(evt,id)
 {
 	try{
@@ -197,6 +200,7 @@ function isNumberKey(evt,id)
 	}
 }
 
+//reset form and recipt 
 function resetButton(){
     document.getElementById("name").classList.remove("validation");
     document.getElementById("prescription").classList.remove("validation");
