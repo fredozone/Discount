@@ -1,12 +1,19 @@
 :root{
     --ckeckboxT: #CCD6A6;
     --checkbox: #a0b269;
-    --row-count: #eaeed9;
+    --body-background: #f5f7ee;
+    --row-count: #d6deb8;
     --button-hover: #667739;
     --white : #fff;
+    --recipt: #fbf8f8;
+    --black: #000000;
+    --red: #ff2323;
+    --light-red: #ff5757;
 }
 
-
+body{
+    background-color: var(--body-background);
+}
 .container{
     display: flex;
     justify-content: space-evenly;
@@ -24,15 +31,36 @@
     height: 400px;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
     flex-direction: column;
     padding-top: 20px;
+    justify-content: center;
+    padding-bottom: 20px;
 }
 
 .title{
-    margin-top: 20px;
     margin-bottom: 15px;
     font-size: 1.5rem;
+}
+
+.trans-store{
+    display: flex;
+    flex-direction: column;
+}
+
+.store{
+    width: 250px;
+}
+
+.info-title{
+    display: inline-block;
+    width: 112px;
+}
+
+.store > .info-store{
+    width: 125px;
+    display: inline-flex;
+    justify-content: flex-end;
+
 }
 
 .form{
@@ -57,6 +85,10 @@ select{
     width: 210px;
 }
 
+.validation{
+    border: 1px solid red !important;
+}
+
 .checkbox{
     margin-top: 5px;
     display: flex;
@@ -69,32 +101,60 @@ input[type=checkbox]{
     accent-color: var(--checkbox);
 }
 
+.button-two{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 .button-style{
+    width: 45%;
     height: 30px;
     margin-top: 15px;
-    background-color: var(--checkbox);
-    border: none;
+    background-color: var(--button-hover);
+    border: 1px solid var(--button-hover);
     border-radius: 10px;
     color: var(--white);
 }
 
 .button-style:hover{
-    background-color: var(--button-hover);
+    background-color: var(--checkbox);
+    border: 1px solid var(--button-hover);
+    color: var(--black);
+}
+
+.button-cancel{
+    width: 45%;
+    height: 30px;
+    margin-top: 15px;
+    background-color: var(--red);
+    border: 1px solid var(--red);
+    border-radius: 10px;
+    color: var(--white);
+}
+
+.button-cancel:hover{
+    background-color: var(--light-red);
+    border: 1px solid var(--red);
+    color: var(--black);;
+
 }
 
 .displayreceipt{
-    display: none;
+    visibility: hidden;
+    transition: ease-in-out;
+    transition-delay: 0.2s;
 }
 
 .row-recipt{
-    height: 370px;
-    background: var(--button-hover);
+    height: 540px;
+    background: var(--recipt);
     width: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: var(--white);
+    color: black;
 }
 
 .title-recipts{
@@ -119,6 +179,9 @@ input[type=checkbox]{
 
 hr{
     width: 100%;
+    height: 1px;
+    background-color: black;
+    border: none;
 }
 
 #grandTotal{
@@ -136,4 +199,28 @@ hr{
     font-size: 1.2rem;
     display: flex;
     justify-content: center;
+}
+
+#thanks{
+    margin-top: 23px;
+    font-size: .8rem;
+    display: flex;
+    justify-content: center;
+}
+
+/**********************************************************
+                    PHONE VIEW
+**********************************************************/
+@media (min-width: 320px) and (max-width: 767px) {
+    .container {
+        margin-bottom: 50px;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    .row-recipt {
+        margin-top: 25px;
+    }
 }
